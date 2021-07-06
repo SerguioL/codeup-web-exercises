@@ -28,18 +28,28 @@
 // var seconds = Math.round((timeGoin - minutesGoined) * 60);
 // console.log("If you drive at " + plannedSpeedInMph + " mph,you will arrive " + minutesGoined + " minutes and " + seconds + " seconds earlier. Is it worth it?")
 
-console.log("Hello from external JavaScript");
-alert("Welcome to my Website");
-let favoriteColor = prompt("What is your favorite color");
-alert("Great " + favoriteColor + " is my favorite color too.");
+// console.log("Hello from external JavaScript");
+// alert("Welcome to my Website");
+// let favoriteColor = prompt("What is your favorite color?");
+// alert("Great " + favoriteColor + " is my favorite color too.");
+//
+// let littleMermaidDaysRent = prompt("How many day did you rent The Little Mermaid? ");
+//
+// let brotherBearDaysRent = prompt("How many day did you rent Brother Bear? ");
+//
+// let herculesDaysRent = prompt("How many day did you rent Hercules? ");
+//
+// let totalCostOfMovies = (littleMermaidDaysRent * 3) + (brotherBearDaysRent * 3) + (herculesDaysRent * 3);
+//
+// alert("$" + totalCostOfMovies);
 
-let littleMermaidDaysRent = prompt("How many day did you rent The Little Mermaid. ");
+let hoursWorkedAtGoogle = prompt("How many hours did you work at Google?");
 
-let brotherBearDaysRent = prompt("How many day did you rent Brother Bear. ");
+let hoursWorkedAtAmazon = prompt("How many hours did you work at Amazon?");
 
-let herculesDaysRent = prompt("How many day did you rent Hercules. ");
+let hoursWorkedAtFaceBook = prompt("How many hours did you work at FaceBook?");
 
-let totalCostOfMovies = (littleMermaidDaysRent * 3) + (brotherBearDaysRent * 3) + (herculesDaysRent * 3);
+let totalPay = (hoursWorkedAtGoogle * 400) + (hoursWorkedAtAmazon * 380) + (hoursWorkedAtFaceBook * 350);
 
-alert("$" + totalCostOfMovies);
+alert("$" + totalPay);
 
