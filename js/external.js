@@ -33,3 +33,13 @@ alert("Welcome to my Website");
 let favoriteColor = prompt("What is your favorite color");
 alert("Great " + favoriteColor + " is my favorite color too.");
 
+let littleMermaidDaysRent = prompt("How many day did you rent The Little Mermaid. ");
+
+let brotherBearDaysRent = prompt("How many day did you rent Brother Bear. ");
+
+let herculesDaysRent = prompt("How many day did you rent Hercules. ");
+
+let totalCostOfMovies = (littleMermaidDaysRent * 3) + (brotherBearDaysRent * 3) + (herculesDaysRent * 3);
+
+alert("$" + totalCostOfMovies);
+
