@@ -29,3 +29,4 @@
 // console.log("If you drive at " + plannedSpeedInMph + " mph,you will arrive " + minutesGoined + " minutes and " + seconds + " seconds earlier. Is it worth it?")
 
 console.log("Hello from external JavaScript");
+alert("Welcome to my Website");
