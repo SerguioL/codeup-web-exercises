@@ -28,20 +28,20 @@
 // var seconds = Math.round((timeGoin - minutesGoined) * 60);
 // console.log("If you drive at " + plannedSpeedInMph + " mph,you will arrive " + minutesGoined + " minutes and " + seconds + " seconds earlier. Is it worth it?")
 
-// console.log("Hello from external JavaScript");
-// alert("Welcome to my Website");
-// let favoriteColor = prompt("What is your favorite color?");
-// alert("Great " + favoriteColor + " is my favorite color too.");
-//
-// let littleMermaidDaysRent = prompt("How many day did you rent The Little Mermaid? ");
-//
-// let brotherBearDaysRent = prompt("How many day did you rent Brother Bear? ");
-//
-// let herculesDaysRent = prompt("How many day did you rent Hercules? ");
-//
-// let totalCostOfMovies = (littleMermaidDaysRent * 3) + (brotherBearDaysRent * 3) + (herculesDaysRent * 3);
-//
-// alert("$" + totalCostOfMovies);
+console.log("Hello from external JavaScript");
+alert("Welcome to my Website");
+let favoriteColor = prompt("What is your favorite color?");
+alert("Great " + favoriteColor + " is my favorite color too.");
+
+let littleMermaidDaysRent = prompt("How many day did you rent The Little Mermaid? ");
+
+let brotherBearDaysRent = prompt("How many day did you rent Brother Bear? ");
+
+let herculesDaysRent = prompt("How many day did you rent Hercules? ");
+
+let totalCostOfMovies = (littleMermaidDaysRent * 3) + (brotherBearDaysRent * 3) + (herculesDaysRent * 3);
+
+alert("$" + totalCostOfMovies);
 
 let hoursWorkedAtGoogle = prompt("How many hours did you work at Google?");
 
@@ -53,3 +53,12 @@ let totalPay = (hoursWorkedAtGoogle * 400) + (hoursWorkedAtAmazon * 380) + (hour
 
 alert("$" + totalPay);
 
+let isClassFull = confirm("Is the class full?");
+
+let doesItConflict = confirm("Does it conflict with your schedule?");
+
+if(isClassFull == doesItConflict){
+    alert("You can Enroll");
+}else{
+    alert("You can not enroll.");
+}
