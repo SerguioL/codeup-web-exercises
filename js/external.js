@@ -33,32 +33,47 @@ alert("Welcome to my Website");
 let favoriteColor = prompt("What is your favorite color?");
 alert("Great " + favoriteColor + " is my favorite color too.");
 
-let littleMermaidDaysRent = prompt("How many day did you rent The Little Mermaid? ");
+let littleMermaidDaysRent = parseFloat(prompt("How many day did you rent The Little Mermaid? "));
 
-let brotherBearDaysRent = prompt("How many day did you rent Brother Bear? ");
+let brotherBearDaysRent = parseFloat(prompt("How many day did you rent Brother Bear? "));
 
-let herculesDaysRent = prompt("How many day did you rent Hercules? ");
+let herculesDaysRent = parseFloat(prompt("How many day did you rent Hercules? "));
 
 let totalCostOfMovies = (littleMermaidDaysRent * 3) + (brotherBearDaysRent * 3) + (herculesDaysRent * 3);
 
-alert("$" + totalCostOfMovies);
+alert("Total cost is $" + totalCostOfMovies);
 
-let hoursWorkedAtGoogle = prompt("How many hours did you work at Google?");
+let hoursWorkedAtGoogle = parseFloat(prompt("How many hours did you work at Google?"));
 
-let hoursWorkedAtAmazon = prompt("How many hours did you work at Amazon?");
+let hoursWorkedAtAmazon = parseFloat(prompt("How many hours did you work at Amazon?"));
 
-let hoursWorkedAtFaceBook = prompt("How many hours did you work at FaceBook?");
+let hoursWorkedAtFaceBook = parseFloat(prompt("How many hours did you work at FaceBook?"));
 
 let totalPay = (hoursWorkedAtGoogle * 400) + (hoursWorkedAtAmazon * 380) + (hoursWorkedAtFaceBook * 350);
 
-alert("$" + totalPay);
+alert("You got payed $" + totalPay);
 
 let isClassFull = confirm("Is the class full?");
 
 let doesItConflict = confirm("Does it conflict with your schedule?");
 
-if(isClassFull == doesItConflict){
+if(isClassFull === doesItConflict){
     alert("You can Enroll");
 }else{
     alert("You can not enroll.");
 }
+
+let numberOfItems = parseFloat(prompt("How many items are you buy?"));
+
+let offerIsNotExpired = confirm("The offer is not expired.");
+
+let premiumMember = confirm("Are you a premium member.");
+
+let isOfferValid = offerIsNotExpired && (premiumMember || (numberOfItems >= 2));
+
+if(isOfferValid === true){
+    alert("Offer valid discount applied.");
+}else{
+    alert("Offer not valid discount not applied.");
+}
+
