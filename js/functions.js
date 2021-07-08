@@ -8,8 +8,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-function sayHello(name){
-    return console.log('Hello, ' + name + '!');
+let myName = "Serguio";
+
+function sayHello(){
+    return 'Hello, ' + myName + '!'
 }
 /**
  * TODO:
@@ -18,6 +20,8 @@ function sayHello(name){
  *
  * console.log 'helloMessage' to check your work
  */
+let helloMessage = sayHello();
+console.log(helloMessage);
 
 /**
  * TODO:
