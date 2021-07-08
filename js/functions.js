@@ -8,7 +8,9 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-
+function sayHello(name){
+    return console.log('Hello, ' + name + '!');
+}
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
