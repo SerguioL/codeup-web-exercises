@@ -97,3 +97,12 @@ let percentageOfTipInDecimals = prompt("What percentage of you bill do you want 
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+function applyDiscount(number,decimals){
+    return (number-(number * decimals));
+}
+
+let originalPrice = prompt("What is the original price?");
+
+let dicountPercent = prompt("What is the discount percent?(put in decimals)");
+
+alert(applyDiscount(originalPrice,dicountPercent));
