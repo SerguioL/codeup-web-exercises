@@ -170,7 +170,7 @@ function isANumber(input) {
 }
 
 function isEvenOrOdd(num){
-    if (num % 2){
+    if (num % 2 == 0){
         return "Number is even.";
     } else {
         return "Number is odd.";
