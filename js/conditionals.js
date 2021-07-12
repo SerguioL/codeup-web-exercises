@@ -46,53 +46,53 @@
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-//var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-//var randomColor = colors[Math.floor(Math.random() * colors.length)];
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-//console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-// function analyzeColor(color) {
-//     switch (color) {
-//         case("red"):
-//             return "Roses are red.";
-//             break;
-//         case("orange"):
-//             return "Oranges are orange.";
-//             break;
-//         case("yellow"):
-//             return "The sun is yellow.";
-//             break;
-//         case("green"):
-//             return "The grass the green.";
-//             break;
-//         case("blue"):
-//             return "The sky is blue.";
-//             break;
-//         case("indigo"):
-//             return "Blueberries are indigo";
-//             break;
-//         case("violet"):
-//             return "The rock is violet";
-//         default:
-//             return "I don't Know"
-//     }
-// }
+function analyzeColor(color) {
+    switch (color) {
+        case("red"):
+            return "Roses are red.";
+            break;
+        case("orange"):
+            return "Oranges are orange.";
+            break;
+        case("yellow"):
+            return "The sun is yellow.";
+            break;
+        case("green"):
+            return "The grass the green.";
+            break;
+        case("blue"):
+            return "The sky is blue.";
+            break;
+        case("indigo"):
+            return "Blueberries are indigo";
+            break;
+        case("violet"):
+            return "The rock is violet";
+        default:
+            return "I don't Know"
+    }
+}
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-// let pickColor = prompt("Pick a color.");
-//
-// alert(analyzeColor(pickColor))
+let pickColor = prompt("Pick a color.");
+
+alert(analyzeColor(pickColor))
 /* ########################################################################## */
 
 /**
@@ -114,23 +114,23 @@
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-// function calculateTotal(lNumber, num){
-//     if(0 === lNumber){
-//         return num - ((lNumber = 0) * num);
-//     } else if(1 === lNumber) {
-//         return num - ((lNumber = .1) * num);
-//     } else if (2 === lNumber){
-//         return num - ((lNumber = .25) * num);
-//     } else if (3 === lNumber){
-//         return num - ((lNumber = .35) * num);
-//     } else if (4 === lNumber){
-//         return num - ((lNumber = .50) * num);
-//     } else if (5 === lNumber){
-//         return num - ((lNumber = 1) * num)
-//     } else {
-//         return "Invalid number"
-//     }
-// }
+function calculateTotal(lNumber, num){
+    if(0 === lNumber){
+        return num - ((lNumber = 0) * num);
+    } else if(1 === lNumber) {
+        return num - ((lNumber = .1) * num);
+    } else if (2 === lNumber){
+        return num - ((lNumber = .25) * num);
+    } else if (3 === lNumber){
+        return num - ((lNumber = .35) * num);
+    } else if (4 === lNumber){
+        return num - ((lNumber = .50) * num);
+    } else if (5 === lNumber){
+        return num - ((lNumber = 1) * num)
+    } else {
+        return "Invalid number"
+    }
+}
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -138,14 +138,14 @@
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-//  var luckyNumber = Math.floor(Math.random() * 6);
-//
-//  let cost = prompt("What is your total coast without any discounts?")
-//
-// alert("Your lucky number was " + luckyNumber + " and your total before the discount was $" + cost + " this is your final total $" + calculateTotal(luckyNumber,cost));
-//
-// console.log(calculateTotal(luckyNumber,cost));
+//Generate a random number between 0 and 6
+ var luckyNumber = Math.floor(Math.random() * 6);
+
+ let cost = prompt("What is your total coast without any discounts?")
+
+alert("Your lucky number was " + luckyNumber + " and your total before the discount was $" + cost + " this is your final total $" + calculateTotal(luckyNumber,cost));
+
+console.log(calculateTotal(luckyNumber,cost));
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
