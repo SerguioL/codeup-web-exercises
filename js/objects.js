@@ -53,9 +53,9 @@ var shoppers = [
 
 shoppers.forEach(function(shopper){
     if(shopper.amount > 200){
-        return console.log("Discount valid for " + shopper.name + " total is " + (shopper.amount -(shopper.amount * .12)));
+        return console.log("Discount valid for " + shopper.name + " total is $" + (shopper.amount -(shopper.amount * .12)).toFixed(2));
     } else{
-        return console.log("Discount not valid for " + shopper.name);
+        return console.log("Discount not valid for " + shopper.name + " your total is $" + shopper.amount.toFixed(2));
     }
 });
 
