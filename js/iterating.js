@@ -12,7 +12,7 @@
      * Create a log statement that will log the number of elements in the names
      * array.
      */
-    console.log(names);
+    console.log(names.length);
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
@@ -64,7 +64,7 @@
 
     let last = [1, 2, 3, 4, 5];
     function lastNumArray(num){
-        return num[5];
+        return num[num.length-1];
     }
-    console.log(secondNumArray(last));
+    console.log(lastNumArray(last));
 })();
