@@ -50,21 +50,21 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    let first = [1, 2, 3, 4, 5];
+    let num = [1, 2, 3, 4, 5];
     function firstNumArray(num){
         return num[0];
     }
-    console.log(firstNumArray(first));
+    console.log(firstNumArray(num));
 
-    let second = [1, 2, 3, 4, 5];
+    //let second = [1, 2, 3, 4, 5];
     function secondNumArray(num){
         return num[1];
     }
-    console.log(secondNumArray(second));
+    console.log(secondNumArray(num));
 
-    let last = [1, 2, 3, 4, 5];
+    //let last = [1, 2, 3, 4, 5];
     function lastNumArray(num){
-        return num[num.length-1];
+        return num[num.length - 1];
     }
-    console.log(lastNumArray(last));
+    console.log(lastNumArray(num));
 })();
