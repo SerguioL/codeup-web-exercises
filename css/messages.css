@@ -1,26 +1,31 @@
 
 .message{
-    border: 1px solid black;
+    border: 2px solid lightgray;
     border-radius: 10px;
     margin: 5px 0 5px 0;
     height: 30px;
-    padding: 5px 0 5px 6px;
+    padding: 5px 6px 5px 6px;
+    font-weight: bold;
 }
 
 
 
 .message-info{
-background-color: rgb(205 221 254);
+    color: rgb(61 48 148);
+    background-color: rgb(205 221 254);
 }
 
 .message-success{
+    color: rgb(57 138 92);
     background-color: rgb(207 244 219);
 }
 
 .message-warning{
+    color: rgb(143 126 36);
     background-color: rgb(252 252 204);
 }
 
 .message-error{
+    color: rgb(164 74 96);
     background-color: rgb(250 210 215);
 }
