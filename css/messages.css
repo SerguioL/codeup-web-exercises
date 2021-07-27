@@ -1,0 +1,26 @@
+
+.message{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 0 5px 0;
+    height: 30px;
+    padding: 5px 0 5px 6px;
+}
+
+
+
+.message-info{
+background-color: rgb(205 221 254);
+}
+
+.message-success{
+    background-color: rgb(207 244 219);
+}
+
+.message-warning{
+    background-color: rgb(252 252 204);
+}
+
+.message-error{
+    background-color: rgb(250 210 215);
+}
