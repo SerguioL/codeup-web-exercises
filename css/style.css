@@ -1,0 +1,34 @@
+.fancy-header{
+    color: purple;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+h2 {
+    color: red;
+    text-decoration: underline;
+}
+
+body{
+    background-color: darkgray;
+    background-image: url("../img/it's_broken.gif");
+    /*background-repeat: no-repeat;*/
+    text-decoration-color: white;
+}
+
+p,ul,li,ol,table,td,th {
+    color: white;
+    font-family: 'Zen Tokyo Zoo', cursive;
+}
+
+table{
+    width: 100%;
+    border: 1px solid white;
+}
+
+a:hover {
+    color: #39FF14;
+}
