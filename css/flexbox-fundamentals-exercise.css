@@ -128,6 +128,9 @@ section:nth-of-type(5) {
 section:nth-of-type(6) {
     background: coral;
     height: 14em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     /* enter needed declarations here */
 }
 
