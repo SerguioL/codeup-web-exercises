@@ -1,4 +1,22 @@
 .jumbotron {
     text-align: center;
-    background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
+    background-image: url("../img/pizza.png");
+
+}
+
+h1 {
+    background-color: rgba(211,211,211,0.65);
+}
+
+.left-text{
+    text-align: left;
+}
+
+.button-right{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.center-text{
+    text-align: center;
 }
