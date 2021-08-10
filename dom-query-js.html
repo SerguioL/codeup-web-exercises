@@ -6,16 +6,21 @@
   <title>DOM: Query and Modify</title>
 </head>
 <body>
-
+<button id="js-btn">JS Button</button>
 <h1 id="main-header">Hello World!</h1>
 <ul>
+  <button id="li-btn">Li Button</button>
+
   <li data-dbid="1">Item 1</li>
   <li data-dbid="2">Item 2</li>
   <li data-dbid="3">Item 3</li>
   <li data-dbid="4">Item 4</li>
   <li data-dbid="5">Item 5</li>
 </ul>
+<button id="sub-btn">Sub Button</button>
 <h2 id="sub-header">Hello Again.</h2>
+<button id="ma-btn">Mission Accomplished!</button>
+
 <p class="sub-paragraph">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
   eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -30,44 +35,69 @@
   (function() {
     "use strict";
     // TODO: Uncomment next line and get the main header element by id
-    var mainHeader = document.getElementById("main-header");
-    console.log(mainHeader);
+    // var mainHeader = document.getElementById("main-header");
+    // console.log(mainHeader);
+
+    var jsBtn = document.getElementById("js-btn");
+    jsBtn.addEventListener("click", function (){
+      document.getElementsByTagName("h1")[0].innerHTML="JavaScript is Cool";
+    });
 
     // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-    mainHeader.innerHTML = "JavaScript is Cool"
-    console.log(mainHeader)
+    // mainHeader.innerHTML = "JavaScript is Cool"
+    // console.log(mainHeader)
     // TODO: Uncomment the next line and get the sub header element by id
-    var subHeader = document.getElementById("sub-header");
-    console.log(subHeader);
-
+    // var subHeader = document.getElementById("sub-header");
+    // console.log(subHeader);
+      var subBtn = document.getElementById("sub-btn");
+      subBtn.addEventListener("click", function (){
+        document.getElementsByTagName("h2")[0].style.color = "blue";
+      });
     // TODO: Set the text color of subHeader to blue
-    subHeader.style.color = "blue";
+    // subHeader.style.color = "blue";
     // TODO: Uncomment the next line and get all list items
     var listItems = document.getElementsByTagName("li");
 
+      var liBtn = document.getElementById("li-btn");
+      liBtn.addEventListener("click", function (){
+        for (var i = 0; i < listItems.length; i++){
+            if(i % 2 === 0) {
+              listItems[i].style.color = "gray";
+            }
+            if(listItems[i].getAttribute("data-dbid") === "1"){
+              listItems[i].style.color ='blue';
+            }
+          }
+      });
+
 
     // TODO: Set text color on every other list item to grey
-    for (var i = 0; i < listItems.length; i++){
-      if(i % 2 === 0) {
-        listItems[i].style.color = "gray";
-      }
-      if(listItems[i].getAttribute("data-dbid") === "1"){
-        listItems[i].style.color ='blue';
-      }
-    }
+    // for (var i = 0; i < listItems.length; i++){
+    //   if(i % 2 === 0) {
+    //     listItems[i].style.color = "gray";
+    //   }
+    //   if(listItems[i].getAttribute("data-dbid") === "1"){
+    //     listItems[i].style.color ='blue';
+    //   }
+    // }
 
     // listItems[0].style.color = "blue";
 
     // TODO: Set text color of li with dbid = 1 to blue
     // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-    var subParagraphs = document.querySelector(".sub-paragraph");
-    subParagraphs.innerHTML = "Mission Accomplished!";
+    // var subParagraphs = document.querySelector(".sub-paragraph");
+    // subParagraphs.innerHTML = "Mission Accomplished!";
 
     // var subParagraphs = document.getElementsByClassName(".sub-paragraph");
     // var subParagraph = subParagraphs[0];
     // subParagraph.innerText = "Mission Accomplished!";
 
-    console.log(subParagraphs);
+    // console.log(subParagraphs);
+
+    var maBtn = document.getElementById("ma-btn");
+    maBtn.addEventListener("click", function(){
+      document.getElementsByTagName("p")[0].innerHTML = "Mission Accomplished!"
+    });
     // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
   })();
 </script>
