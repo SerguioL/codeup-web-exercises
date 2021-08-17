@@ -59,10 +59,13 @@ $(document).ready(function (){
       $("dd").toggleClass("invisible");
   });
 
-  $("dt").hover(function(event){
-    $(event.target).toggleClass("highlight");
-  });
+  // $("dt").hover(function(event){
+  //   $(event.target).toggleClass("highlight");
+  // });
 
+  $("dt").click(function(e){
+    $(e.target).css("background-color", "yellow");
+  });
 });
 
 
