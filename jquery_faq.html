@@ -55,15 +55,16 @@
 <script>
 $(document).ready(function (){
 
-  $("dd").click(function (){
-      $("dt").toggleClass("invisible");
+  $("dt").click(function (){
+      $("dd").toggleClass("invisible");
+  });
+
+  $("dt").hover(function(event){
+    $(event.target).toggleClass("highlight");
   });
 
 });
 
-$("dt").hover(function(event){
-  $(event.target).toggleClass("highlight");
-});
 
 </script>
 </body>
