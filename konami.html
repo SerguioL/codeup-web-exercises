@@ -13,20 +13,32 @@
 <script>
   "use strict"
 
-  var pattern = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "enter"];
-  var current =[];
+  // function onKonamiCode(cb) {
+  //   var input = '';
+  //   var key = '38384040373937396665';
+  //   document.addEventListener('keydown', function (e) {
+  //     input += ("" + e.keyCode);
+  //     if (input === key) {
+  //       return cb();
+  //     }
+  //     if (!key.indexOf(input)) return;
+  //     input = ("" + e.keyCode);
+  //   });
+  // }
+  //
+  // onKonamiCode(function () {alert('\o/')})
 
-  $(document).keyup(function(event){
-    console.log(event.keyCode);
-    if(event.keyCode === 38{
+  var currentCode ='';
+  var komamiCode ='3838404037393739666513';
 
-
-    }
+  $(document).keyup(function (event){
+      currentCode += event.keyCode;
+      if (currentCode.includes(komamiCode)){
+          alert("You have 30 more lives");
+      }
   });
 
-    function konami(){
 
-    }
 
 </script>
 
