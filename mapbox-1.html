@@ -41,12 +41,10 @@
     // });
 
     setTimeout(function (){
-        var map = new mapboxgl.Map({
-            container: 'map',
-            zoom: 3,
-            center: [-100.52 , 39.91],
-            style: 'mapbox://styles/mapbox/satellite-v9'
-        });
+        map.setZoom(3)
+        map.setStyle('mapbox://styles/mapbox/satellite-v9');
+        map.setCenter([-100.52 , 39.91]);
+
     },5000);
 
 </script>
