@@ -1,0 +1,53 @@
+
+nav{
+    background: rgb(7, 104, 250);
+    color: white;
+    box-shadow:  5px 5px 5px 5px grey;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+h5{
+    padding: 10px;
+}
+
+a{
+    color: white;
+    margin-left: 10px;
+}
+
+
+#map {
+    margin: auto;
+    width: 98%;
+    height: 340px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid darkgray;
+    padding: 5px;
+    width: 330px;
+}
+
+#card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search{
+    margin: 20px 10px 10px 10px;
+}
+
+article{
+    margin: 0 10px 10px 10px;
+    box-shadow:  5px 5px 5px grey;
+}
+
+.list-group-item{
+    margin: 0;
+    width: 300px;
+}
