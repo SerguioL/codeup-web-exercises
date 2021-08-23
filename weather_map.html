@@ -3,50 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map</title>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
-    <style>
-
-        #map{
-            width: 800px;
-            height: 800px;
-        }
-
-        .card {
-            display: flex;
-            flex-direction: column;
-            border: 2px solid darkgray;
-            padding: 5px;
-            width: 330px;
-        }
-
-        #card-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-    </style>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
 
 <nav>
-
+    <h5>Weather App</h5>
+    <h5>Current City:</h5>
 </nav>
 
 <main>
 
-<div>
-    <section id="card-section"></section>
+<div class="search">
+    <input id="address" type="text" placeholder="Enter address">
+    <button id="change-map-btn" class="btn btn-primary">Change Map</button>
 </div>
 
+    <div>
+        <section id="card-section"></section>
+    </div>
 
-<div id="map"></div>
+
+    <div id="map"></div>
 
 </main>
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
 
-<script src="js/mapbo-geocode-utils.js"></script>
+<script src="js/mapbox-geocode-utils.js"></script>
 
 <script src="js/jQuery.js"></script>
 
@@ -63,19 +51,50 @@
         zoom: 10 // starting zoom
     });
 
-    var Popup = new mapboxgl.Popup()
-        .setHTML('<h1>SA</h1>');
-    var Marker = new mapboxgl.Marker({draggable: true})
+    // map.addControl(
+    //     new MapboxGeocoder({
+    //         accessToken: mapboxgl.accessToken,
+    //         mapboxgl: mapboxgl
+    //     })
+    // );
+
+
+    var marker = new mapboxgl.Marker({draggable: true})
         .setLngLat([-98.4936, 29.4241])
-        .setPopup(Popup)
+        // .setPopup(Popup)
         .addTo(map);
 
-    Marker.on('dragend', function() {
-        var markerCoordinates = Marker.getLngLat();
-        // document.querySelector('#coordinates').innerHTML = markerCoordinates.lng;
-        Popup.setHTML(markerCoordinates.lng);
-        Popup.setHTML(markerCoordinates.lat);
+    marker.on('dragend', function () {
+        var markerCoordinates = marker.getLngLat();
+        $( "article" ).remove();
+        weather(markerCoordinates.lat,markerCoordinates.lng);
+
     });
+
+
+    document.querySelector('#change-map-btn').addEventListener('click', function() {
+        var address = document.querySelector('#address').value;
+        geocode(address, MAPBOX_API_TOKEN)
+            .then(function(result) {
+                map.setCenter(result);
+                marker.setLngLat(result);
+                console.log(result);
+                $( "article" ).remove();
+                weather(result[1],result[0]);
+            })
+    });
+
+
+
+    // var markerCoordinates = Marker.getLngLat();
+    // // document.querySelector('#coordinates').innerHTML = markerCoordinates.lng;
+    // Popup.setHTML('<p>' + (markerCoordinates.lng % 180) + '</p> <p>' + markerCoordinates.lat +'</p>');
+    // $( "article" ).remove();
+    // weather(markerCoordinates.lat,markerCoordinates.lng);
+
+    // geocode("Whitefish, Montana", MAPBOX_API_TOKEN).then(function (result) {
+    //     map.setCenter(result);
+    // });
 
 </script>
 
@@ -83,23 +102,27 @@
 <script>
 
 
-    //convert API date?time new date (x * 1000);
 
-    $.get('https://api.openweathermap.org/data/2.5/onecall',{
+    //convert API date?time new date (x * 1000);
+function weather( lat,lon) {
+    $.get('https://api.openweathermap.org/data/2.5/onecall', {
         appid: WEATHER_APP_ID,
-        lat: 29.4252,
-        lon: -98.4916,
+        lat: lat,
+        lon: lon,
         units: 'imperial',
         exclude: 'minutely,hourly'
-    }).done(function (data){
+    }).done(function (data) {
+
+        console.log(data);
+
         // This function takes a number between 0 and 360 and returns a
 // wind direction abbreviation. the MapBox API gives us a "wind degrees" datum
 // this takes the "wind degrees" and converts it into a familiar abbreviation
-        function windCardinalDirection(degrees){
+        function windCardinalDirection(degrees) {
             let cardinalDirection = '';
-            if ((degrees > 348.75 && degrees <= 360) || (degrees >=0 && degrees <= 11.25)){
+            if ((degrees > 348.75 && degrees <= 360) || (degrees >= 0 && degrees <= 11.25)) {
                 cardinalDirection = "N";
-            } else if (degrees > 11.25 && degrees  <= 33.75) {
+            } else if (degrees > 11.25 && degrees <= 33.75) {
                 cardinalDirection = "NNE";
             } else if (degrees > 33.75 && degrees <= 56.25) {
                 cardinalDirection = "NE";
@@ -115,9 +138,9 @@
                 cardinalDirection = "SSE";
             } else if (degrees > 168.75 && degrees <= 191.25) {
                 cardinalDirection = "S";
-            } else  if (degrees > 191.25 && degrees <= 213.75) {
+            } else if (degrees > 191.25 && degrees <= 213.75) {
                 cardinalDirection = "SSW";
-            } else if (degrees > 213.75 && degrees <= 236.25)  {
+            } else if (degrees > 213.75 && degrees <= 236.25) {
                 cardinalDirection = "SW";
             } else if (degrees > 236.25 && degrees <= 258.75) {
                 cardinalDirection = "WSW";
@@ -138,42 +161,46 @@
         // this function appends leading zeroes, for example if you need a
 // month in the format 08 instead of 8, or a time like 08:00 instead
 // of 8:00
-        function appendLeadingZeroes(n){
-            if(n <= 9){
+        function appendLeadingZeroes(n) {
+            if (n <= 9) {
                 return "0" + n;
             }
             return n;
         }
 
-        $(document).ready(function(){
+            data.daily.forEach(function (day, index) {
+                if (index > 4) {
+                    return;
+                }
+                const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+                let current_datetime = new Date(day.dt * 1000);
+                let formatted_date = current_datetime.getDate() + "-" + months[current_datetime.getMonth()] + "-" + current_datetime.getFullYear();
 
-                    data.daily.forEach(function(day,index ){
-                        if(index > 4){
-                            return ;
-                        }
-                        const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-                        let current_datetime = new Date(day.dt *1000);
-                        let formatted_date = current_datetime.getDate() + "-" + months[current_datetime.getMonth()] + "-" + current_datetime.getFullYear();
+                // let dynamicDay = new Date(data.daily[i].dt * 1000).toDateString()
 
+                $("#card-section").append('<article>' +
+                    '<p class="list-group-item">' + formatted_date + '</p>' +
+                    '<p class="list-group-item">' + '<img src="http://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png"/>' + '</p>' +
+                    '<p class="list-group-item">' + day.temp.min + '°F' + ' / ' + day.temp.max + '°F' + '</p>' +
+                    '<p class="list-group-item">' + 'Description: ' + day.weather[0].description + '</p>' +
+                    '<p class="list-group-item">' + 'Humidity: ' + day.humidity + '</p>' +
+                    '<p class="list-group-item">' + 'Wind: ' + day.wind_speed + ' ' + windCardinalDirection(day.wind_deg) + '</p>' +
+                    '<p class="list-group-item">' + 'Pressure: ' + day.pressure + '</p>' +
+                    // '<p class="index" style="display: none">' + index + '</p>' +
+                    '</article>');
+            });
+        // day.weather[0].icon
 
-                        $("#card-section").append('<article class="card">' +
-                            '<p>' + formatted_date+ '</p>' +
-                            '<p>' + day.temp.min + '°F' + ' / ' + day.temp.max + '°F' +'</p>' +
-                            '<p>' + 'Description ' + day.weather[0].description + '</p>' +
-                            '<p>' + 'humidity ' + day.humidity + '</p>' +
-                            '<p>' + 'wind ' + windCardinalDirection(day.wind_deg) + '</p>' +
-                            '<p>' + 'pressure ' + day.pressure + '</p>' +
-                            '<p class="index" style="display: none">'+ index +'</p>' +
-                            '</article>');
-                    });
-                });
 
         // data.daily.forEach(function (day){
         //     console.log(day.humidity);
         // });
-    }).fail(function (error){
+    }).fail(function (error) {
         console.log(error);
     });
+}
+
+weather(29.4252,-98.4916);
 
 </script>
 
