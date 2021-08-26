@@ -58,7 +58,27 @@ const avgYearsExp = users.reduce((total, user, index, array) => {
     }
 },0);
 
+// const highestMileage = cars.reduce((accumulator, car, index, carsArray) => {
+//     if (index === carsArray.length -1) {
+//         accumulator.push(car.mileage);
+//         accumulator.sort((a,b) => b-a);
+//         return accumulator[0];
+//     } else {
+//         accumulator.push(car.mileage);
+//         return accumulator;
+//     }
+// }, []);
 
+const longestEmail = users.reduce((accumulator, uEamil, index, uEamilArray) => {
+    if (index === uEamilArray.length -1){
+        accumulator.push(uEamil.email);
+        accumulator.sort();
+        return accumulator[0];
+    } else {
+        accumulator.push(uEamil.email);
+        return accumulator;
+    }
+},[]);
 
 
 
