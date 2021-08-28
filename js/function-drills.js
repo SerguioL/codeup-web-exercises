@@ -62,3 +62,27 @@ function isMultipleOf(target,n){
     }
 }
 
+function isTrue(boolean){
+    return boolean === true;
+}
+
+function isFalse(boolean){
+    return boolean === false;
+}
+
+// function isTruthy(input){
+//
+// }
+//
+// function isFalsy(input){
+//
+// }
+
+function isVowel(letter){
+    if (letter === "a" || "e" || "i" || "o" || "u"; )
+    {
+        return "Is a vowel";
+    }else {
+        return "Is not a vowel";
+    }
+}

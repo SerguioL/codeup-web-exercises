@@ -188,7 +188,7 @@ function numberIsPositive(num){
         return "Number is positive";
     }
 }
-
+function
 if (userEnterNumber) {
     let userNumber = parseFloat(prompt("Please enter a number"));
     if (isANumber(userNumber)){

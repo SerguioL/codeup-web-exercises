@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+</head>
+<body>
+
+
+<script src="js/jQuery.js"></script>
+
+<script src="js/keys.js"></script>
+
+<script>
+
+
+    //convert API date?time
+
+$.get('https://api.openweathermap.org/data/2.5/onecall',{
+   appid: WEATHER_APP_ID,
+   lat: 29.4252,
+   lon: -98.4916,
+    units: 'imperial',
+    exclude: 'minutely,hourly'
+}).done(function (data){
+    console.log(data);
+    console.log(data.current.clouds);
+    console.log(data.daily[0].humidity);
+
+
+    data.daily.forEach(function (day){
+        console.log(day.humidity);
+    });
+}).fail(function (error){
+    console.log(error);
+});
+
+</script>
+
+</body>
+</html>
