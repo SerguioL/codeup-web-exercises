@@ -46,11 +46,28 @@
     return value.json();
   })
   .then((data) => {
-    console.log(data);
+    console.log(data.quote);//added.quote
   })
   .catch((error) => {
     console.log(error);
   })
+
+  // -------- MINI EXERCISE 3
+
+  /* TODO: Create a new endpoint on  and use fetch to send some POST requests.
+      Experiment with sending different shapes of data in the body of the request.
+   */
+  fetch('https://hookb.in/ggpP90Z8ZXUG7Voo7aOZ',{
+    method:'POST',
+    headers:{
+      'Content-TYpe': 'application/json'
+    },
+    body: JSON.stringify({
+      firstName: 'Serguio',
+      LastName: 'Landa'
+    })
+  }).then(response => response.json()).then(console.log).catch(console.error);
+
 
 </script>
 </body>
