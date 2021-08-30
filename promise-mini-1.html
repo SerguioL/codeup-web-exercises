@@ -27,13 +27,30 @@
 
   aPromise.then((x) => {
     console.log(`VALUE_HERE is an even number! ${x}`)
-  }).catch((y) => {
-    console.log(`VALUE_HERE is an odd number! ${y}`)
+  }).catch((x) => {
+    console.log(`VALUE_HERE is an odd number! ${x}`)
   })
 
   // TODO: if aPromise resolves, console.log 'VALUE_HERE is an even number!'
   // TODO: if aPromise rejects, console.error 'VALUE_HERE is an odd number!'
 
+  // -------- MINI EXERCISE 2
+
+  /* TODO: make a GET request using fetch to the Programming Quote API url and log just the text of the random quote.
+   */
+
+  const quoteUrl = `http://quotes.stormconsultancy.co.uk/random.json`;
+
+  fetch(quoteUrl)
+  .then((value) =>{
+    return value.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 
 </script>
 </body>
