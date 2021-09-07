@@ -1,10 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+
+    #map{
+      width: 800px;
+      height: 800px;
+    }
+
+  </style>
 </head>
 <body>
+
+<div id="map"></div>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+
+<script src="js/mapbox-geocode-utils.js"></script>
+
+<script src="js/keys.js"></script>
+
+<script>
+
+  "use strict"
+
+  mapboxgl.accessToken = MAPBOX_API_TOKEN;
+  const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [-98.4936, 29.4241], // starting position [lng, lat]
+    zoom: 20 // starting zoom
+  });
+
+  geocode("Gennaro's Trattoria, Texas", MAPBOX_API_TOKEN).then(function(result){
+    map.setCenter(result);
+    map.setZoom(10);
+  });
+
+
+  // var gennaroPopups = new mapboxgl.Popup()
+  //     .setHTML('<h1>Gennaro\'s Trattoria</h1>');
+  // // .setLngLat([-98.27388143145775,29.840068792109626]);
+  // var gennaroMarker = new mapboxgl.Marker()
+  //           .setLngLat([-98.27388143145775,29.840068792109626])
+  //           .setPopup(gennaroPopups)
+  //           .addTo(map);
+  //
+  // var wingStopPopups = new mapboxgl.Popup()
+  //     .setHTML('<h1>WingStop</h1>');
+  //     // .setLngLat([-98.42097598714423,29.799953554146814]);
+  // var wingStopMarker = new mapboxgl.Marker()
+  //     .setLngLat([-98.42097598714423,29.799953554146814])
+  //     .setPopup(wingStopPopups)
+  //     .addTo(map);
+  //
+  // var longHornPopups = new mapboxgl.Popup()
+  //     .setHTML('<h1>LongHorn</h1>');
+  //     // .setLngLat([-98.07531843300691,29.730156931348866]);
+  // var longHornMarker = new mapboxgl.Marker()
+  //     .setLngLat([-98.07531843300691,29.730156931348866])
+  //     .setPopup(longHornPopups)
+  //     .addTo(map);
+
+  var restaurant = [
+      {
+          address: "Gennaro's Trattoria",
+          name: "Gennaro's Trattoria",
+          longitude: -98.27388143145775,
+          latitude: 29.840068792109626
+      },
+      {
+          address: "WingStop",
+          name: 'WingStop',
+          longitude: -98.42097598714423,
+          latitude: 29.799953554146814
+      },
+      {
+          address: "LongHorn",
+          name: 'LongHorn',
+          longitude: -98.07531843300691,
+          latitude: 29.730156931348866
+      }
+  ];
+
+  restaurant.forEach(function (rInfo){
+      console.log(rInfo);
+      var popups = new mapboxgl.Popup()
+          .setHTML('<h1>' + rInfo.name + '</h1>');
+      // .setLngLat([-98.42097598714423,29.799953554146814]);
+      var marker = new mapboxgl.Marker()
+          .setLngLat([rInfo.longitude,rInfo.latitude])
+          .setPopup(popups)
+          .addTo(map);
+
+  });
+
+
+
+</script>
 
 </body>
 </html>
